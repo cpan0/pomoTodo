@@ -1,0 +1,14 @@
+{"tasks": [
+    {
+        "task": "do CPSC project phase 2",
+        "is completed?": false
+    },
+    {
+        "task": "do WebWork",
+        "is completed?": false
+    },
+    {
+        "task": "do CPSC project phase 1",
+        "is completed?": true
+    }
+]}
