@@ -14,6 +14,7 @@ import static ui.PomoToDoUI.TOMATO_IMG;
 public class ToDoUI extends JPanel {
     private JPanel headerPanel;
     private JPanel buttonPanel;
+    private JPanel timerPanel;
     private TasksUI toDoListPanel;
     private ToDoList tdl;
 
@@ -26,11 +27,52 @@ public class ToDoUI extends JPanel {
 
         addHeaderPanel();
         addButtonPanel();
+        addTimerPanel();
 
         toDoListPanel = new TasksUI(tdl);
         add(toDoListPanel);
 
         add(Box.createVerticalGlue());
+    }
+
+    private void addTimerPanel() {
+        timerPanel = new JPanel();
+        BoxLayout l = new BoxLayout(timerPanel, BoxLayout.LINE_AXIS);
+        timerPanel.setLayout(l);
+
+        timerPanel.add(addTimer("PomoTodo"));
+        timerPanel.add(Box.createHorizontalGlue());
+        timerPanel.add(addTimer("Short Break"));
+        timerPanel.add(addTimer("Long Break"));
+
+        add(timerPanel);
+        add(Box.createRigidArea(new Dimension(0, 10)));
+    }
+
+    private JButton addTimer(String timer) {
+        JButton timerButton = new JButton(timer);
+
+        timerButton.setActionCommand("select timer");
+//        addButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                if (tdl.getSize() < 10) {
+//                    Object toDoObj = JOptionPane.showInputDialog(null, "What would you like to add to the to-do list?",
+//                            "Add...", JOptionPane.QUESTION_MESSAGE, TOMATO_IMG, null, "");
+//                    if (toDoObj != null) {
+//                        String toDo = toDoObj.toString();
+//                        Task t = new Task(toDo);
+//                        tdl.addTask(t);
+//                        toDoListPanel.showTask(t);
+//                    }
+//                    refresh();
+//                } else {
+//                    JOptionPane.showMessageDialog(null, "Oops! There are no more spaces left.");
+//                }
+//            }
+//        });
+
+        return timerButton;
     }
 
     // MODIFIES: this
